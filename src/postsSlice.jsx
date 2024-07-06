@@ -8,7 +8,7 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    addPost: (state, action) => {
+    addPost: (state, action) => { 
       state.posts.push(action.payload);
     },
     updatePost: (state, action) => {
@@ -19,19 +19,23 @@ const postsSlice = createSlice({
         existingPost.content = content;
       }
     },
-   delete:(state, action)=>{
-    const {id, title, content} = action.payload
-    const deletefield = state.posts.find()
+   deletePost :(state, action)=>{
+    const {id} = action.payload
+    console.log(" i am from delete post" )
+    console.log(action.payload)
+    const deletefieldindex = state.posts.findIndex((object)=> object.id=== id)
+    if(deletefieldindex  !== -1){
+     state.posts =  state.posts.filter((object)=>object.id !== id )
+    }
 
    }
-
-
-
+   
+  
 
   },
 });
 
-export const { addPost, updatePost } = postsSlice.actions;
+export const { addPost, updatePost, deletePost  } = postsSlice.actions;
 
 export default postsSlice.reducer;
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { updatePost } from './postsSlice.jsx';
+import { updatePost, deletePost } from './postsSlice.jsx';
 import "./postdisplayscreen.css";
 
 
@@ -31,6 +31,15 @@ const handleEditClick = (post) => {
     setEditedContent('');
   };
 
+const handleDeletePost = (a)=>{
+ 
+  dispatch( deletePost(a))
+
+}
+
+
+
+
 
 
 return (
@@ -58,6 +67,7 @@ return (
                                                 <h2>{post.title}</h2>
                                                 <p>{post.content}</p>
                                                 <button onClick={() => handleEditClick(post)}>Edit</button>
+                                                <button onClick={()=>handleDeletePost({id:post.id})}> Delete</button>
                                               </div>
                   )}
                 </div>

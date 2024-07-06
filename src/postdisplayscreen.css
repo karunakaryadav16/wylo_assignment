@@ -107,6 +107,7 @@
 .post_lists_container  button{
     background-color: red;
     border:none;
+    margin-bottom: 10px;
 } 
 
 
